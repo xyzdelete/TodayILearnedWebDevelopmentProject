@@ -8,10 +8,15 @@ body {
     background-color: #eef2ff;
     color: #1e1b4b;
     font-family: "Sono", sans-serif;
-    padding: 40px;
+    margin-top: 40px;
 }
 
 /* MAIN LAYOUT */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
 .header {
     margin-bottom: 40px;
     padding: 10px;
@@ -25,6 +30,11 @@ body {
     display: flex;
     align-items: center;
     gap: 16px;
+}
+
+.logo img {
+    width: 68px;
+    height: 68px;
 }
 
 .fact-form {

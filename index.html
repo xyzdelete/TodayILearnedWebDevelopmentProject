@@ -17,89 +17,98 @@
     </head>
 
     <body>
-        <header class="header">
-            <div class="logo">
-                <img
-                    src="logo.png"
-                    height="68"
-                    width="68"
-                    alt="Today I Learned Logo"
+        <div class="container">
+            <header class="header">
+                <div class="logo">
+                    <img src="logo.png" alt="Today I Learned Logo" />
+                    <h1>Today I learned</h1>
+                </div>
+
+                <button>Share a fact</button>
+            </header>
+
+            <form class="fact-form">
+                <input
+                    type="text"
+                    placeholder="Share a fact with the world..."
                 />
-                <h1>Today I learned</h1>
-            </div>
 
-            <button>Share a fact</button>
-        </header>
+                <span>200</span>
 
-        <form class="fact-form">
-            <input type="text" placeholder="Share a fact with the world..." />
+                <input type="text" placeholder="Trustworthy source..." />
+                <select>
+                    <option value="">Choose category:</option>
+                    <option value="technology">Technology</option>
+                    <option value="science">Science</option>
+                    <option value="finance">Finance</option>
+                </select>
+                <button>Post</button>
+            </form>
 
-            <span>200</span>
+            <main class="main">
+                <aside>
+                    <ul>
+                        <li><button>All</button></li>
+                        <li><button>Technology</button></li>
+                        <li><button>Science</button></li>
+                    </ul>
+                </aside>
 
-            <input type="text" placeholder="Trustworthy source..." />
-            <select>
-                <option value="">Choose category:</option>
-                <option value="technology">Technology</option>
-                <option value="science">Science</option>
-                <option value="finance">Finance</option>
-            </select>
-            <button>Post</button>
-        </form>
-
-        <main class="main">
-            <aside>
-                <ul>
-                    <li><button>All</button></li>
-                    <li><button>Technology</button></li>
-                    <li><button>Science</button></li>
-                </ul>
-            </aside>
-
-            <section>
-                <ul>
-                    <li class="fact">
-                        <p>
-                            React is being developed by Meta (formerly facebook)
-                            <a href="https://opensource.fb.com/" target="_blank"
-                                >(Source)</a
+                <section>
+                    <ul>
+                        <li class="fact">
+                            <p>
+                                React is being developed by Meta (formerly
+                                facebook)
+                                <a
+                                    href="https://opensource.fb.com/"
+                                    target="_blank"
+                                    >(Source)</a
+                                >
+                            </p>
+                            <span
+                                class="tag"
+                                style="
+                                    background-color: #4338ca;
+                                    color: #eef2ff;
+                                "
+                                >#technology#</span
                             >
-                        </p>
-                        <span
-                            class="tag"
-                            style="background-color: #4338ca; color: #eef2ff"
-                            >#technology#</span
-                        >
-                        <div class="vote-buttons">
-                            <button>👍 <strong>24</strong></button>
-                            <button>🤯 <strong>9</strong></button>
-                            <button>⛔️ <strong>4</strong></button>
-                        </div>
-                    </li>
-                    <li class="fact">
-                        <p>
-                            Millennial dads spend 3 times as much time with
-                            their kids than their fathers spent with them. In
-                            1982, 43% of fathers had never changed a diaper.
-                            Today, that number is down to 3%
-                            <a
-                                href="https://www.mother.ly/parenting/millennial-dads-spend-more-time-with-their-kids"
-                                target="_blank"
-                                >(Source)</a
+                            <div class="vote-buttons">
+                                <button>👍 <strong>24</strong></button>
+                                <button>🤯 <strong>9</strong></button>
+                                <button>⛔️ <strong>4</strong></button>
+                            </div>
+                        </li>
+                        <li class="fact">
+                            <p>
+                                Millennial dads spend 3 times as much time with
+                                their kids than their fathers spent with them.
+                                In 1982, 43% of fathers had never changed a
+                                diaper. Today, that number is down to 3%
+                                <a
+                                    href="https://www.mother.ly/parenting/millennial-dads-spend-more-time-with-their-kids"
+                                    target="_blank"
+                                    >(Source)</a
+                                >
+                            </p>
+                            <span
+                                class="tag"
+                                style="
+                                    background-color: #5b21b6;
+                                    color: #eef2ff;
+                                "
+                                >#society#</span
                             >
-                        </p>
-                        <span
-                            class="tag"
-                            style="background-color: #5b21b6; color: #eef2ff"
-                            >#society#</span
-                        >
-                        <div class="vote-buttons">
-                            <button>👍 <strong>11</strong></button>
-                            <button>🤯 <strong>2</strong></button>
-                            <button>⛔️ <strong>0</strong></button>
-                        </div>
-                    </li>
-                </ul>
-            </section>
-        </main>
+                            <div class="vote-buttons">
+                                <button>👍 <strong>11</strong></button>
+                                <button>🤯 <strong>2</strong></button>
+                                <button>⛔️ <strong>0</strong></button>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+            </main>
+        </div>
     </body>
 </html>
