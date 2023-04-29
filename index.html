@@ -24,7 +24,7 @@
                     <h1>Today I learned</h1>
                 </div>
 
-                <button>Share a fact</button>
+                <button class="btn btn-large">Share a fact</button>
             </header>
 
             <form class="fact-form">
@@ -42,15 +42,31 @@
                     <option value="science">Science</option>
                     <option value="finance">Finance</option>
                 </select>
-                <button>Post</button>
+                <button class="btn btn-large">Post</button>
             </form>
 
             <main class="main">
                 <aside>
                     <ul>
-                        <li><button>All</button></li>
-                        <li><button>Technology</button></li>
-                        <li><button>Science</button></li>
+                        <li class="category">
+                            <button class="btn btn-all-categories">All</button>
+                        </li>
+                        <li class="category">
+                            <button
+                                class="btn btn-category"
+                                style="background-color: #3b82f6"
+                            >
+                                Technology
+                            </button>
+                        </li>
+                        <li class="category">
+                            <button
+                                class="btn btn-category"
+                                style="background-color: #16a34a"
+                            >
+                                Science
+                            </button>
+                        </li>
                     </ul>
                 </aside>
 
@@ -70,7 +86,7 @@
                             <span
                                 class="tag"
                                 style="
-                                    background-color: #4338ca;
+                                    background-color: #3b82f6;
                                     color: #eef2ff;
                                 "
                                 >#technology#</span
@@ -97,7 +113,7 @@
                             <span
                                 class="tag"
                                 style="
-                                    background-color: #5b21b6;
+                                    background-color: #eab208;
                                     color: #eef2ff;
                                 "
                                 >#society#</span
