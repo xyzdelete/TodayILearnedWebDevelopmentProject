@@ -13,7 +13,7 @@ body {
 
 /* MAIN LAYOUT */
 .container {
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -24,6 +24,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 100px;
 }
 
 .logo {
@@ -40,8 +41,12 @@ body {
 .fact-form {
     background-color: #e0e7ff;
     margin-bottom: 40px;
-    padding: 16px 40px;
-    text-align: center;
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    border-radius: 16px;
 }
 
 .main {
@@ -74,6 +79,7 @@ h1 {
     display: flex;
     align-items: center;
     gap: 24px;
+    border-radius: 16px;
 }
 
 .tag {
@@ -170,4 +176,29 @@ ul {
 
 .vote-buttons button:hover {
     background-color: #c7d2fe;
+}
+
+.fact-form input,
+.fact-form select {
+    background-color: #eef2ff;
+    border: none;
+    border-radius: 100px;
+    padding: 16px;
+    font-size: 18px;
+    color: inherit;
+    font-family: inherit;
+}
+
+.fact-form input::placeholder {
+    color: #94a3b8;
+}
+
+.fact-form input:first-child {
+    flex-grow: 1;
+}
+
+.fact-form span {
+    font-weight: 600;
+    font-size: 18px;
+    margin-right: 18px;
 }
