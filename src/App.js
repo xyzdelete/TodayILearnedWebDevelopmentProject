@@ -34,24 +34,25 @@ const initialFacts = [
     }
 ];
 
-function Counter() {
-    const [count, setCount] = useState(8);
+// function Counter() {
+//     const [count, setCount] = useState(8);
 
-    return (
-        <div>
-            <span style={{ fontSize: "40px" }}>{count}</span>
-            <button
-                className="btn btn-large"
-                onClick={() => setCount((c) => c + 1)}>
-                +1
-            </button>
-        </div>
-    );
-}
+//     return (
+//         <div>
+//             <span style={{ fontSize: "40px" }}>{count}</span>
+//             <button
+//                 className="btn btn-large"
+//                 onClick={() => setCount((c) => c + 1)}>
+//                 +1
+//             </button>
+//         </div>
+//     );
+// }
 
 function App() {
     // 1. Define state variable
     const [showForm, setShowForm] = useState(false);
+    const [facts, setFacts] = useState(initialFacts);
 
     return (
         <>
@@ -61,11 +62,16 @@ function App() {
             />
 
             {/* 2. Use state variable */}
-            {showForm ? <NewFactForm /> : undefined}
+            {showForm ? (
+                <NewFactForm
+                    setFacts={setFacts}
+                    setShowForm={setShowForm}
+                />
+            ) : undefined}
 
             <main className="main">
                 <CategoryFilter />
-                <FactList />
+                <FactList facts={facts} />
             </main>
         </>
     );
@@ -117,7 +123,7 @@ function isValidHttpUrl(string) {
     return url.protocol === "http:" || url.protocol === "https:";
 }
 
-function NewFactForm() {
+function NewFactForm({ setFacts, setShowForm }) {
     const [text, setText] = useState("");
     const [source, setSource] = useState("http://example.com");
     const [category, setCategory] = useState("");
@@ -143,8 +149,15 @@ function NewFactForm() {
             };
 
             // 4. Add the new fact to the UI: add the fact to state
+            setFacts((facts) => [newFact, ...facts]);
+
             // 5. Reset input fields
+            setText("");
+            setSource("");
+            setCategory("");
+
             // 6. Close the form
+            setShowForm(false);
         }
     }
 
@@ -208,10 +221,7 @@ function CategoryFilter() {
     );
 }
 
-function FactList() {
-    // TEMPORARY
-    const facts = initialFacts;
-
+function FactList({ facts }) {
     return (
         <section>
             <ul className="facts-list">
