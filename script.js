@@ -49,7 +49,15 @@ const factsList = document.querySelector(".facts-list");
 
 // Create DOM elements: Render facts in list
 factsList.innerHTML = "";
-createFactsList(initialFacts);
+
+// Load data from Supabase
+loadFacts();
+
+async function loadFacts() {
+    const res = await fetch();
+    const data = await res.json();
+    createFactsList(data);
+}
 
 function createFactsList(data) {
     // factsList.insertAdjacentHTML("afterbegin", "<li>Arturs</li>");
