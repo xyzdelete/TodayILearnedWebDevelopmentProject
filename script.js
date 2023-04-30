@@ -1,5 +1,23 @@
 console.log("Hello World!");
 
+function calcFactAge(year) {
+    const currentYear = new Date().getFullYear();
+    const age = currentYear - year;
+
+    if (age >= 0) {
+        return age;
+    } else {
+        return "Impossible year";
+    }
+}
+
+const age1 = calcFactAge(2015);
+console.log(age1);
+
+console.log(calcFactAge(2020));
+console.log(calcFactAge(1990));
+console.log(calcFactAge(2037));
+
 const btn = document.querySelector(".btn-open");
 const form = document.querySelector(".fact-form");
 
@@ -13,32 +31,22 @@ btn.addEventListener("click", function () {
     }
 });
 
-let votesInteresting = 23;
-let votesMindblowing = 5;
-const text = "Lisbon is the capital of Portugal";
+let votesInteresting = 20;
+let votesMindblowing = 0;
 
-votesInteresting = votesInteresting + 1;
-votesInteresting++;
-console.log(votesInteresting);
-
-let totalUpvotes = votesInteresting + votesMindblowing;
-console.log("Upvotes:", totalUpvotes);
-
-let votesFalse = 4;
-const isCorrect = votesFalse < totalUpvotes;
-console.log(isCorrect);
-
-console.log(parseInt("24.53ccc"));
-
-function calcFactAge(year) {
-    const currentYear = new Date().getFullYear();
-    // 2022 - 2015
-    const age = currentYear - year;
-    return age;
+console.log(votesInteresting === votesMindblowing);
+if (votesInteresting === votesMindblowing) {
+    alert("This fact is equally interesting and mindblowing");
+} else if (votesInteresting > votesMindblowing) {
+    console.log("Interesting fact!");
+} else if (votesInteresting < votesMindblowing) {
+    console.log("Mindblowing fact!!");
 }
 
-const age1 = calcFactAge(2015);
-console.log(age1);
-
-console.log(calcFactAge(2020));
-console.log(calcFactAge(1990));
+// falsy values: 0, "", null, undefined
+// truthy value: everything else
+if (votesMindblowing) {
+    console.log("Mindblowing fact!!");
+} else {
+    console.log("Not so special...");
+}
