@@ -27,3 +27,18 @@ console.log("Upvotes:", totalUpvotes);
 let votesFalse = 4;
 const isCorrect = votesFalse < totalUpvotes;
 console.log(isCorrect);
+
+console.log(parseInt("24.53ccc"));
+
+function calcFactAge(year) {
+    const currentYear = new Date().getFullYear();
+    // 2022 - 2015
+    const age = currentYear - year;
+    return age;
+}
+
+const age1 = calcFactAge(2015);
+console.log(age1);
+
+console.log(calcFactAge(2020));
+console.log(calcFactAge(1990));
