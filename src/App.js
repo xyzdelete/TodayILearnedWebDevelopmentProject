@@ -56,26 +56,35 @@ function App() {
     const [showForm, setShowForm] = useState(false);
     const [facts, setFacts] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+    const [currentCategory, setCurrentCategory] = useState("all");
 
-    useEffect(function () {
-        async function getFacts() {
-            setIsLoading(true);
-            const { data: facts, error } = await supabase
-                .from("facts")
-                .select("*")
-                .order("votesInteresting", { ascending: false })
-                .limit(256);
+    useEffect(
+        function () {
+            async function getFacts() {
+                setIsLoading(true);
 
-            if (!error) {
-                setFacts(facts);
-            } else {
-                alert("There was a problem getting data!");
+                let query = supabase.from("facts").select("*");
+
+                if (currentCategory !== "all") {
+                    query = query.eq("category", currentCategory);
+                }
+
+                const { data: facts, error } = await query
+                    .order("votesInteresting", { ascending: false })
+                    .limit(256);
+
+                if (!error) {
+                    setFacts(facts);
+                } else {
+                    alert("There was a problem getting data!");
+                }
+                setIsLoading(false);
             }
-            setIsLoading(false);
-        }
 
-        getFacts();
-    }, []);
+            getFacts();
+        },
+        [currentCategory]
+    );
 
     return (
         <>
@@ -93,7 +102,7 @@ function App() {
             ) : undefined}
 
             <main className="main">
-                <CategoryFilter />
+                <CategoryFilter setCurrentCategory={setCurrentCategory} />
                 {isLoading ? <Loader /> : <FactList facts={facts} />}
             </main>
         </>
@@ -222,12 +231,16 @@ function NewFactForm({ setFacts, setShowForm }) {
     );
 }
 
-function CategoryFilter() {
+function CategoryFilter({ setCurrentCategory }) {
     return (
         <aside>
             <ul>
                 <li className="category">
-                    <button className="btn btn-all-categories">All</button>
+                    <button
+                        className="btn btn-all-categories"
+                        onClick={() => setCurrentCategory("all")}>
+                        All
+                    </button>
                 </li>
 
                 {CATEGORIES.map((category) => (
@@ -236,7 +249,8 @@ function CategoryFilter() {
                         className="category">
                         <button
                             className="btn btn-category"
-                            style={{ backgroundColor: category.color, color: "#eef2ff" }}>
+                            style={{ backgroundColor: category.color, color: "#eef2ff" }}
+                            onClick={() => setCurrentCategory(category.name)}>
                             {category.name}
                         </button>
                     </li>
@@ -247,19 +261,23 @@ function CategoryFilter() {
 }
 
 function FactList({ facts }) {
-    return (
-        <section>
-            <ul className="facts-list">
-                {facts.map((fact) => (
-                    <Fact
-                        key={fact.id}
-                        fact={fact}
-                    />
-                ))}
-            </ul>
-            <p>There are {facts.length} facts in the database. Add your own!</p>
-        </section>
-    );
+    if (facts.length === 0) {
+        return <p className="message">No facts for this category yet! Create the first one 😊</p>;
+    } else {
+        return (
+            <section>
+                <ul className="facts-list">
+                    {facts.map((fact) => (
+                        <Fact
+                            key={fact.id}
+                            fact={fact}
+                        />
+                    ))}
+                </ul>
+                <p>There are {facts.length} facts in the database. Add your own!</p>
+            </section>
+        );
+    }
 }
 
 function Fact({ fact }) {
