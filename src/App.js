@@ -53,27 +53,13 @@ function App() {
     // 1. Define state variable
     const [showForm, setShowForm] = useState(false);
 
-    const appTitle = "Today I Learned";
-
     return (
         <>
-            {/* HEADER */}
-            <header className="header">
-                <div className="logo">
-                    <img
-                        src="logo.png"
-                        alt="Today I Learned Logo"
-                    />
-                    <h1>{appTitle}</h1>
-                </div>
+            <Header
+                showForm={showForm}
+                setShowForm={setShowForm}
+            />
 
-                <button
-                    className="btn btn-large btn-open"
-                    // 3. Update state variable
-                    onClick={() => setShowForm((show) => !show)}>
-                    Share a fact
-                </button>
-            </header>
             {/* 2. Use state variable */}
             {showForm ? <NewFactForm /> : undefined}
 
@@ -82,6 +68,30 @@ function App() {
                 <FactList />
             </main>
         </>
+    );
+}
+
+function Header({ showForm, setShowForm }) {
+    const appTitle = "Today I Learned";
+    return (
+        <header
+            showForm={showForm}
+            className="header">
+            <div className="logo">
+                <img
+                    src="logo.png"
+                    alt="Today I Learned Logo"
+                />
+                <h1>{appTitle}</h1>
+            </div>
+
+            <button
+                className="btn btn-large btn-open"
+                // 3. Update state variable
+                onClick={() => setShowForm((show) => !show)}>
+                {showForm ? "Close" : "Share a fact"}
+            </button>
+        </header>
     );
 }
 
