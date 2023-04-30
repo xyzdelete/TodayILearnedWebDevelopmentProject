@@ -209,6 +209,10 @@ ul {
     background-color: #c7d2fe;
 }
 
+.vote-buttons button:disabled {
+    background-color: #e0e7ff;
+}
+
 .fact-form input,
 .fact-form select {
     background-color: #eef2ff;
