@@ -1,7 +1,6 @@
 console.log("Hello World!");
 
 const btn = document.querySelector(".btn-open");
-
 const form = document.querySelector(".fact-form");
 
 btn.addEventListener("click", function () {
@@ -13,3 +12,18 @@ btn.addEventListener("click", function () {
         btn.textContent = "share a fact";
     }
 });
+
+let votesInteresting = 23;
+let votesMindblowing = 5;
+const text = "Lisbon is the capital of Portugal";
+
+votesInteresting = votesInteresting + 1;
+votesInteresting++;
+console.log(votesInteresting);
+
+let totalUpvotes = votesInteresting + votesMindblowing;
+console.log("Upvotes:", totalUpvotes);
+
+let votesFalse = 4;
+const isCorrect = votesFalse < totalUpvotes;
+console.log(isCorrect);
