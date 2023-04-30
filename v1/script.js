@@ -54,7 +54,12 @@ factsList.innerHTML = "";
 loadFacts();
 
 async function loadFacts() {
-    const res = await fetch();
+    const res = await fetch("https://.supabase.co/rest/v1/facts", {
+        headers: {
+            apiKey: "",
+            authorization: "Bearer ",
+        },
+    });
     const data = await res.json();
     // console.log(data);
     // const filteredData = data.filter((fact) => fact.category === "society");
